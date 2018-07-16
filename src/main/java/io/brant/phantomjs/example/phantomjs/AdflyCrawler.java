@@ -68,7 +68,12 @@ public class AdflyCrawler {
 			element.click();
 
 			crawler.terminateWindow(driver);
+			
+			crawler.displayCookies(driver);
+			crawler.deleteAllCookies(driver);
+			crawler.displayCookies(driver);
 		}
+		crawler.showMyIp();
 
 	}
 

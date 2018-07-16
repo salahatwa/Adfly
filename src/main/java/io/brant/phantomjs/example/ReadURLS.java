@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
@@ -17,14 +18,17 @@ import org.springframework.stereotype.Component;
 public class ReadURLS {
 	@Autowired
 	private ResourceLoader resourceLoader;
+	
+	@Value("${url.location}")
+	private String urlLocation;
 
 	public ArrayList<String> getURLS() {
 
 		ArrayList<String> urls = new ArrayList<String>();
 		
 		try {
-			Resource resource = resourceLoader.getResource("classpath:phantomjs/urls.txt");
-			File shrinkURLSFILE = resource.getFile();
+//			Resource resource = resourceLoader.getResource();
+			File shrinkURLSFILE = new File(urlLocation+"urls.txt");
 
 			FileReader fileReader = new FileReader(shrinkURLSFILE);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
