@@ -25,7 +25,9 @@ public class PhantomJsConf {
 	private String driverPath ;
 	
 	final String chromeBinary = "C:/Users/Elias/AppData/Local/Google/Chrome/Application/chrome.exe";
-	final String webdriverChromeBinary = "C:/drivers/chromedriver.exe";
+	
+	@Value("${chrome.driver}")
+	private String webdriverChromeBinary ;
 	
 	
 	public WebDriver firefoxDriver(WebDriver driver) {
